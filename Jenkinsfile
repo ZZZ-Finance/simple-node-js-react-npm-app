@@ -2,7 +2,7 @@ pipeline {
     environment {
         PATH = "$PATH:/usr/local/bin"
     }
-    agent { label 'docker' }
+    agent { any }
     stages {
         stage('Build') { 
             steps {
