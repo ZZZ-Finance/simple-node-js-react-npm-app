@@ -12,7 +12,8 @@ pipeline {
         stage('Build') { 
             steps {
               withEnv(["PATH=$PATH:~/.local/bin"]){
-                sh "bash test.sh"
+                sh "chmod +x ./build.sh"
+                sh "./build.sh"
               }
             }
         }
