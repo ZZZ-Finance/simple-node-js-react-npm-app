@@ -2,7 +2,7 @@ pipeline {
     environment {
         PATH = "$PATH:/usr/local/bin"
     }
-    agent { none }
+    agent any
     stages {
         stage('Build') { 
             steps {
