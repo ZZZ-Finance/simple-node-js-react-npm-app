@@ -2,7 +2,7 @@ pipeline {
     environment {
         PATH = "$PATH:/usr/local/bin"
     }
-    agent { label 'ci-cd' }
+    agent { label 'docker' }
     stages {
         stage('Build') { 
             steps {
