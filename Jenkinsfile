@@ -1,3 +1,4 @@
+properties([pipelineTriggers([githubPush()])])
 pipeline {
     environment {
         PATH = "$PATH:/usr/local/bin"
@@ -12,5 +13,11 @@ pipeline {
               }
             }
         }
+        
+    }
+    post {
+       always {
+           deleteDir()
+       }
     }
 }
