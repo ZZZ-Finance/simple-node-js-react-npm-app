@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    container_name: zzz_test
+    build: .
+    environment:
+      - PORT=8888
+    ports:
+      - 8899:8888
