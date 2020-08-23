@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        PATH = "$PATH:/usr/local/bin"
+    }
     agent {
         docker {
             image 'node:6-alpine' 
@@ -7,8 +10,10 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            withEnv(["PATH=$PATH:~/.local/bin"]){
-              sh "bash test.sh"
+            steps {
+              withEnv(["PATH=$PATH:~/.local/bin"]){
+                sh "bash test.sh"
+              }
             }
         }
     }
