@@ -1,7 +1,4 @@
 pipeline {
-    environment {
-        PATH = "$PATH:/usr/local/bin"
-    }
     agent {
         docker {
             image 'node:6-alpine' 
@@ -10,9 +7,8 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            steps {
-                sh 'chmod +x ./build.sh'
-                sh './build.sh' 
+            withEnv(["PATH=$PATH:~/.local/bin"]){
+              sh "bash test.sh"
             }
         }
     }
